@@ -27,12 +27,12 @@ Just install it using
 
 ## Usage
 
-### Example
+### VirtualCAN example using socketCAN framework
 
 Two machines:1 (Debian VM) and 2 (Debian host) need to be connected:
 ```
-Debian VM with IP: 172.16.71.55) <<=== ETH/true MAC I/F ===>> Debian host with IP: 172.16.71.51
-     virtual interface vcan0                                       virtual interface vcan0
+Debian VM with IP: 172.16.71.55 <<=== ETH/true MAC I/F ===>> Debian host with IP: 172.16.71.51
+     virtual interface vcan0                                      virtual interface vcan0
 ```
 Machine 2 (Debian host with IP address: 172.16.71.51) will be connected to the virtual
 CAN Bus that is attached to Machine 1 (Debian VM with IP address: 172.16.71.55).
@@ -73,6 +73,7 @@ prevent packet loss.
 ```
 sudo tc qdisc add dev vcan0 root tbf rate 300kbit latency 100ms burst 1000
 ```
+
 This command will rate limit `vcan0` to 300 kbit/s.
 Try to match the rate limit with your physical interface on the remote.
 Keep also in mind that this also increases the overall latency!
