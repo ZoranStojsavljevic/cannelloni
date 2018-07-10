@@ -1,4 +1,4 @@
-Please, for the complete understanding how the socketCAN does work, read the following net pointer:
+Please, for the more complete understanding how to set the socketCAN feature, read the following net pointer:
 
 	https://en.wikipedia.org/wiki/SocketCAN
 
