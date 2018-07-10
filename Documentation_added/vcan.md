@@ -1,3 +1,7 @@
+Please, for the complete understanding how the socketCAN does work, read the following net pointer:
+
+	https://en.wikipedia.org/wiki/SocketCAN
+
 How to dynamically set a vcan net interface in normal Debian or any other Linux distro as feature:
 
     root@magdalena:/proc# cd /lib/modules/
