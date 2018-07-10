@@ -1,33 +1,8 @@
-# cannelloni
+### VirtualCAN example using socketCAN framework
 
 Please, read README.md to understand general cannelloni feature set.
 
 Before setting the VirtualCAN testing of the virtual socketCAN framework
-
-## Compilation
-
-cannelloni uses cmake to generate a Makefile.
-You can build cannelloni using the following command.
-```
-cmake -DCMAKE_BUILD_TYPE=Release
-make
-```
-
-If you do not want or need SCTP support, you can disable it
-by setting `-DSCTP_SUPPORT=false`.
-SCTP support is also disabled if you don't have `lksctp-tools`
-installed.
-
-## Installation
-
-Just install it using
-```
-  make install
-```
-
-## Usage
-
-### VirtualCAN example using socketCAN framework
 
 Two machines:1 (Debian VM) and 2 (Debian host) need to be connected:
 ```
