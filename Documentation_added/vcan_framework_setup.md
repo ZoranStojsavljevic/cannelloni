@@ -29,10 +29,11 @@ Just install it using
 
 ### Example
 
-Two machines:1 (VM) and 2 (host) need to be connected:
-
-![](doc/firstexp.png)
-
+Two machines:1 (Debian VM) and 2 (Debian host) need to be connected:
+```
+Debian VM with IP: 172.16.71.55) <<=== ETH/true MAC I/F ===>> Debian host with IP: 172.16.71.51
+     virtual interface vcan0                                       virtual interface vcan0
+```
 Machine 2 (Debian host with IP address: 172.16.71.51) will be connected to the virtual
 CAN Bus that is attached to Machine 1 (Debian VM with IP address: 172.16.71.55).
 
