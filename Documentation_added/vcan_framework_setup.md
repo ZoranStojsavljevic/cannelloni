@@ -63,7 +63,13 @@ nothing to do with vcan0 of the Machine 1! Also, do note that the IP address
 172.16.71.55 is the IP of the Debian VM.
 
 The tunnel is now complete and can be used on both machines.
-Simply try it by using `candump` and/or `cangen`.
+Simply try it by using `candump` and/or `cangen`:
+
+`candump` and `cangen` tools to be found here:
+https://github.com/linux-can/can-utils
+
+Description how to use these tools to be found here:
+http://sgframework.readthedocs.io/en/latest/cantutorial.html
 
 If something does not work, try the debug switch `-d cut` to find out
 what is wrong.
