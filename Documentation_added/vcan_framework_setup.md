@@ -2,7 +2,7 @@
 
 Please, read README.md to understand general cannelloni feature set.
 
-Before setting the VirtualCAN testing of the virtual socketCAN framework
+Before setting the VirtualCAN testing of the virtual socketCAN framework:
 
 Two machines:1 (Debian VM) and 2 (Debian host) need to be connected:
 ```
