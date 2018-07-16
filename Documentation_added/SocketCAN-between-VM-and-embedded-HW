@@ -9,7 +9,7 @@ Before setting the VirtualCAN testing of the virtual socketCAN framework
 Two machines:1 (Debian VM) and 2 (Beaglebone-Black) need to be connected:
 ```
 Debian VM with IP: 192.168.15.2 <<=== ETH/true MAC I/F ===>> Beaglebone-Black IP: 192.168.15.101
-     virtual interface vcan0                                      virtual interface vcan0
+     virtual interface vcan0                                          virtual interface vcan0
 ```
 Machine 2 (Beaglebone-Black with IP address: 192.168.15.101) will be connected to the virtual
 CAN Bus that is attached to Machine 1 (Debian VM with IP address: 192.168.15.2).
@@ -19,6 +19,7 @@ plays a perfect environment/test bed for socketCAN and on the top of it, cannell
 
 Please before continuing, the following should be done on the Debian VM:
 apt-get install can-utils (so to save some environment setting and can-utils git cloning).
+
 ```
 root@stretch:/home/vagrant/projectCAN# apt-get install can-utils
 Reading package lists... Done
