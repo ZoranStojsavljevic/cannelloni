@@ -19,7 +19,25 @@ plays a perfect environment/test bed for socketCAN and on the top of it, cannell
 
 Please before continuing, the following should be done on the Debian VM:
 apt-get install can-utils (so to save some environment setting and can-utils git cloning).
-
+```
+root@stretch:/home/vagrant/projectCAN# apt-get install can-utils
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  can-utils
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 80.8 kB of archives.
+After this operation, 431 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian stretch/main amd64 can-utils amd64 0.0+git20161220-1 [80.8 kB]
+Fetched 80.8 kB in 0s (496 kB/s)    
+Selecting previously unselected package can-utils.
+(Reading database ... 90847 files and directories currently installed.)
+Preparing to unpack .../can-utils_0.0+git20161220-1_amd64.deb ...
+Unpacking can-utils (0.0+git20161220-1) ...
+Setting up can-utils (0.0+git20161220-1) ...
+root@stretch:/home/vagrant/projectCAN#
+```
 Prepare vcan on the Machine 1 (Debian VM with IP address: 192.168.15.2):
 ```
 sudo modprobe vcan
@@ -63,7 +81,13 @@ Keep also in mind that this also increases the overall latency!
 
 Now start cannelloni on Machine 2 (Beaglebone-Black HW (am3352 Sitara/OMAP3)):
 ```
-cannelloni -I vcan0 -R 192.168.15.2 -r 20000 -l 20000
+root@beaglebone:/# find . -name libcannelloni-common.so
+./usr/local/lib/libcannelloni-common.so
+./home/root/cannelloni/libcannelloni-common.so
+root@beaglebone:/# export LD_LIBRARY_PATH=/usr/local/lib/
+root@beaglebone:/# cannelloni -I vcan0 -R 192.168.15.2 -r 20000 -l 20000&
+INFO:udpthread.cpp[146]:run:UDPThread up and running
+INFO:canthread.cpp[110]:run:CANThread up and running
 ```
 
 Please, do note that vcan0 is the dedicated interface to the Machine 2, has
