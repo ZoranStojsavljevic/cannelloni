@@ -14,22 +14,22 @@ application, I use CAN tunneling via ETH phys.
 I, actually use socketCAN-Fd framework from the Linux 4.17.2 LTS
 kernel, playing with user space can-utils app.
 ```
-Here is the condensed Beaglebone Black local.conf for such kind of setup:
-CONF_VERSION = "1"
-PATCHRESOLVE = "noop"
-SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
-DL_DIR ?= "${TOPDIR}/downloads"
-TMPDIR ?= "${TOPDIR}/tmp"
-PACKAGE_CLASSES ?= "package_rpm package_deb"
-BBMASK = "meta-bbb/recipes-mender"
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
-CORE_IMAGE_EXTRA_INSTALL_append = "openssh cmake canutils libsocketcan
-nfs-utils rt-tests strace procps packagegroup-core-buildessential "
-DISTRO_FEATURES_append = " ram"
-IMAGE_FSTYPES_append = " cpio.xz"
-MACHINE ??= "beaglebone"
-DISTRO ??= "poky"
-BBMULTICONFIG ?= ""
+  Here is the condensed Beaglebone Black local.conf for such kind of setup:
+  CONF_VERSION = "1"
+  PATCHRESOLVE = "noop"
+  SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
+  DL_DIR ?= "${TOPDIR}/downloads"
+  TMPDIR ?= "${TOPDIR}/tmp"
+  PACKAGE_CLASSES ?= "package_rpm package_deb"
+  BBMASK = "meta-bbb/recipes-mender"
+  EXTRA_IMAGE_FEATURES = "debug-tweaks"
+  CORE_IMAGE_EXTRA_INSTALL_append = "openssh cmake canutils libsocketcan
+  nfs-utils rt-tests strace procps packagegroup-core-buildessential "
+  DISTRO_FEATURES_append = " ram"
+  IMAGE_FSTYPES_append = " cpio.xz"
+  MACHINE ??= "beaglebone"
+  DISTRO ??= "poky"
+  BBMULTICONFIG ?= ""
 ```
 And, the setup (on both sides) is shown here:
 https://stackoverflow.com/questions/36568167/can-fd-support-for-virtual-can-vcan-on-socketcan/51376306#51376306
@@ -40,21 +40,21 @@ there is a environment preparation I did NOT want to go into (into details)!
 
 To set socketCAN framework beneath Linux kernel (I am using 4.17.2), please, as root:
 ```
-lsmod | grep can
-modprobe can
-modprobe can_raw
-modprobe can-bcm
-modprobe can-dev
-modprobe can-gw
-modprobe vcan
-lsmod | grep can
+  lsmod | grep can
+  modprobe can
+  modprobe can_raw
+  modprobe can-bcm
+  modprobe can-dev
+  modprobe can-gw
+  modprobe vcan
+  lsmod | grep can
 ```
 To set the socketCAN-Fd framework, the following should be done (also as root):
 ```
-ip link add dev vcan0 type vcan
-ip link set vcan0 mtu 72
-ip link set dev vcan0 up
-ifconfig
+  ip link add dev vcan0 type vcan
+  ip link set vcan0 mtu 72
+  ip link set dev vcan0 up
+  ifconfig
 ```
 The can-utils package is required to test the socketCAN-Fd framework.
 Also, the following is required:
