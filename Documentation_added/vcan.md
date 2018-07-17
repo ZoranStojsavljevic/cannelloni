@@ -76,3 +76,16 @@ How to dynamically set a vcan net interface in normal Debian or any other Linux 
 	   TX packets 0  bytes 0 (0.0 B)
 	   TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     root@magdalena:/lib/modules/4.9.0-6-amd64# sudo ip link set dev vcan0 up
+    
+    The following represents the script, setting socketCAN on Linux kernel:
+
+ ```
+ 	lsmod | grep can
+	modprobe can
+	modprobe can_raw
+	modprobe can-bcm
+	modprobe can-dev
+	modprobe can-gw
+	modprobe vcan
+	lsmod | grep can
+```
