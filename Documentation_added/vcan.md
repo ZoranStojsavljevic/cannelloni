@@ -87,3 +87,6 @@ The following represents the script, setting socketCAN on Linux kernel:
 	modprobe can-gw
 	modprobe vcan
 	lsmod | grep can
+	ip link add name vcan0 type vcan
+	ip link set dev vcan0 up
+	ifconfig
