@@ -13,8 +13,10 @@ application, I use CAN tunneling via ETH phys.
 
 I, actually use socketCAN-Fd framework from the Linux 4.17.2 LTS
 kernel, playing with user space can-utils app.
+
+Here is the condensed Beaglebone Black local.conf for such kind of setup:
+
 ```
-  Here is the condensed Beaglebone Black local.conf for such kind of setup:
   CONF_VERSION = "1"
   PATCHRESOLVE = "noop"
   SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
