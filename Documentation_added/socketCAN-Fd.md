@@ -48,15 +48,14 @@ modprobe can-dev
 modprobe can-gw
 modprobe vcan
 lsmod | grep can
-
 ```
 To set the socketCAN-Fd framework, the following should be done (also as root):
-
+```
 ip link add dev vcan0 type vcan
 ip link set vcan0 mtu 72
 ip link set dev vcan0 up
 ifconfig
-
+```
 The can-utils package is required to test the socketCAN-Fd framework.
 Also, the following is required:
 https://github.com/mguentner/cannelloni
