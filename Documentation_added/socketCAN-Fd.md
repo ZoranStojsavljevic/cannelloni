@@ -37,10 +37,51 @@ And, the setup (on both sides) is shown here:
 https://stackoverflow.com/questions/36568167/can-fd-support-for-virtual-can-vcan-on-socketcan/51376306#51376306
 (signed as _nobody_, aka me).
 
-It works as a charm. Please, do note that commands are generic, and that
-there is a environment preparation I did NOT want to go into (into details)!
+It works as a charm. Please, do note that commands are generic.
 
-To set socketCAN framework beneath Linux kernel (I am using 4.17.2), please, as root:
+Beaglebone kernel 4.17.2 CAN framework .config setup for CAN-Fd setup to work is given here:
+```
+  CONFIG_CAN=m
+  CONFIG_CAN_RAW=m
+  CONFIG_CAN_BCM=m
+  CONFIG_CAN_GW=m
+  # CAN Device Drivers
+  CONFIG_CAN_VCAN=m
+  CONFIG_CAN_VXCAN=m
+  CONFIG_CAN_SLCAN=m
+  CONFIG_CAN_DEV=m
+  CONFIG_CAN_CALC_BITTIMING=y
+  # CONFIG_CAN_LEDS is not set
+  # CONFIG_CAN_FLEXCAN is not set
+  # CONFIG_CAN_GRCAN is not set
+  CONFIG_CAN_TI_HECC=m
+  CONFIG_CAN_C_CAN=m
+  CONFIG_CAN_C_CAN_PLATFORM=m
+  # CONFIG_CAN_CC770 is not set
+  # CONFIG_CAN_IFI_CANFD is not set
+  # CONFIG_CAN_M_CAN is not set
+  # CONFIG_CAN_RCAR is not set
+  # CONFIG_CAN_RCAR_CANFD is not set
+  # CONFIG_CAN_SJA1000 is not set
+  CONFIG_CAN_SOFTING=m
+  # CAN SPI interfaces
+  # CONFIG_CAN_HI311X is not set
+  CONFIG_CAN_MCP251X=m
+  # CAN USB interfaces
+  CONFIG_CAN_EMS_USB=m
+  CONFIG_CAN_ESD_USB2=m
+  CONFIG_CAN_GS_USB=m
+  CONFIG_CAN_KVASER_USB=m
+  CONFIG_CAN_PEAK_USB=m
+  CONFIG_CAN_8DEV_USB=m
+  # CONFIG_CAN_MCBA_USB is not set
+  CONFIG_CAN_DEBUG_DEVICES=y
+  # CONFIG_SCSI_SCAN_ASYNC is not set
+```
+The complete defconfig (the config of the Beaglebone 4.17.2 kernel) file is given here:
+https://github.com/ZoranStojsavljevic/cip-rt-misc/blob/master/configs/bbb/YOCTO/SocketCAN/kernel-config/defconfig
+
+To set socketCAN-Fd framework beneath Linux kernel (example given: 4.17.2), please, do as root:
 ```
   lsmod | grep can
   modprobe can
