@@ -105,16 +105,21 @@ https://github.com/mguentner/cannelloni
 
 And, everything works like a Swatch!
 
-On the xmit side: cangen -f vcan0 -v vcan0
+On the xmit side:
 ```
-2C3##0.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.
-BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.
-DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42
+  cangen -f vcan0 -v vcan0
+  cangen -g 0.01 -f vcan0 -v vcan0
+
+  2C3##0.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.
+  BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.
+  DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42
 ```
-On the receiving side: candump vcan0
+On the receiving side:
 ```
-vcan0 2C3 [64] 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A
-FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25
-5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42
+  candump vcan0
+
+  vcan0 2C3 [64] 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A
+  FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25
+  5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42
 ```
 True socketCAN-Fd framework.
