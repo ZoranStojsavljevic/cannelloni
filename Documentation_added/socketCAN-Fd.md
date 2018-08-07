@@ -102,7 +102,12 @@ To set the socketCAN-Fd framework, the following should be done (also as root):
 The can-utils package is required to test the socketCAN-Fd framework.
 Also, the following is required:
 https://github.com/mguentner/cannelloni
+```
+  (short description of the cannelloni command))
+  cannelloni -I vcan0 -R <remote IP address> -r 20000 -l 20000
 
+  cannelloni will now listen on port 20000 and has <remote IP address> configured as its remote.
+```
 And, everything works like a Swatch!
 
 On the xmit side:
