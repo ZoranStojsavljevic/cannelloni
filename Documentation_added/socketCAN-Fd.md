@@ -115,7 +115,10 @@ On the xmit side:
   cangen -f vcan0 -v vcan0
   cangen -g 0.01 -f vcan0 -v vcan0
   or:
-  cangen -g 0.001 -f vcan0 vcan0
+  cangen -x -g 0.001 -f vcan0
+    x - no local loopback
+    g - 200ms default
+    f - generate CAN Fd frames
 
   2C3##0.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.
   BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.
@@ -126,6 +129,7 @@ On the receiving side:
   candump vcan0
   or
   candump -s2 vcan0
+    s2 - 2: silent mode
 
   vcan0 2C3 [64] 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A
   FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25
