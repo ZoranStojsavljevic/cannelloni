@@ -103,7 +103,7 @@ The can-utils package is required to test the socketCAN-Fd framework.
 Also, the following is required:
 https://github.com/mguentner/cannelloni
 ```
-  (short description of the cannelloni command))
+  (short description of the cannelloni application command)
   cannelloni -I vcan0 -R <remote IP address> -r 20000 -l 20000
 
   cannelloni will now listen on port 20000 and has <remote IP address> configured as its remote.
@@ -114,6 +114,8 @@ On the xmit side:
 ```
   cangen -f vcan0 -v vcan0
   cangen -g 0.01 -f vcan0 -v vcan0
+  or:
+  cangen -g 0.001 -f vcan0 vcan0
 
   2C3##0.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.
   BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.DC.BD.CB.42.25.5A.FF.1E.
@@ -122,6 +124,8 @@ On the xmit side:
 On the receiving side:
 ```
   candump vcan0
+  or
+  candump -s2 vcan0
 
   vcan0 2C3 [64] 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A
   FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25 5A FF 1E DC BD CB 42 25
